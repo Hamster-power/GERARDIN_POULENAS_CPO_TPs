@@ -23,8 +23,8 @@ public class Grille {
 }
     public boolean ajouterJetonDansColonne (Jeton LeJeton, int nombre){ //ajouter un jeton dans une colonne 
         for (int i=0; i<6; i++){
-            if (cellulesJeu[i][nombre-1].jetonCourant==null){
-                cellulesJeu[i][nombre-1].affecterJeton(LeJeton);
+            if (cellulesJeu[i][nombre].jetonCourant==null){
+                cellulesJeu[i][nombre].affecterJeton(LeJeton);
                 return true; 
             }
         }

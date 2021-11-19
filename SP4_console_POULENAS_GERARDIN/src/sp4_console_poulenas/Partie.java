@@ -33,23 +33,20 @@ public class Partie {
     public void debuterPartie(){
         grilleJeu.afficherGrilleSurConsole();
         joueurCourant=ListeJoueurs[0];
-        boolean a,b; 
-        while ((a=grilleJeu.etreRempli())!=true && (b=grilleJeu.etreGagnantePourJoueur(joueurCourant))!=true){
-            System.out.println(a+ " et " +b);
-            
+        while (grilleJeu.etreRempli()!=true && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])!=true && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])!=true){
             grilleJeu.afficherGrilleSurConsole();
             Scanner sc; 
             sc = new Scanner(System.in);
             System.out.println("Choisissez une colonne");
             int choix = sc.nextInt();
-            while ( choix != 1 && choix !=2 && choix!= 3 && choix != 4 && choix !=5 && choix != 6){
+            while ( choix!=0 && choix != 1 && choix !=2 && choix!= 3 && choix != 4 && choix !=5 && choix != 6 ){
                 System.out.println("Choisissez une colonne");
                 choix = sc.nextInt();
             }
             while (grilleJeu.colonneRemplie(choix)!=false){
                 System.out.println("Choisissez une colonne (colonne remplie)");
                 choix = sc.nextInt();
-                while ( choix != 1 || choix !=2 || choix!= 3 || choix != 4 || choix !=5 || choix != 6){
+                while ( choix !=0 && choix != 1 && choix !=2 && choix!= 3 && choix != 4 && choix !=5 && choix != 6 ){
                     choix = sc.nextInt();
             }
             }
