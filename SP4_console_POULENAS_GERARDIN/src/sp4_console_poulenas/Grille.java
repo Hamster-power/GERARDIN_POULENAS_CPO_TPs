@@ -138,4 +138,32 @@ public class Grille {
         return cellulesJeu[nombre1][nombre2].placerTrouNoir();
         
     }
+    public void tasserGrille (int n1){
+        for (int i=0; i<5; i++){
+            if (cellulesJeu[i][n1].jetonCourant==null){
+                cellulesJeu[i][n1].jetonCourant=cellulesJeu[i+1][n1].jetonCourant;
+                cellulesJeu[i+1][n1].jetonCourant=null;
+            }
+        }
+      
+    }
+    public Jeton recupererJeton(int n1, int n2){
+        Jeton J = cellulesJeu[n1][n2].jetonCourant;
+        cellulesJeu[n1][n2].jetonCourant=null;
+        return J;
+    }
+    public boolean placerDesintegrateur(int n1, int n2){
+        if(cellulesJeu[n1][n2].prescenceDesintegrateur()==false){
+            cellulesJeu[n1][n2].placerDesintegrateur();
+            return true;
+        }
+       return false; 
+    }
+    public boolean supprimerJeton(int n1,int n2 ){
+        if (cellulesJeu[n1][n2].jetonCourant!=null){
+            cellulesJeu[n1][n2].jetonCourant=null;
+            return true;
+        }
+        return false;
+    }
 }
