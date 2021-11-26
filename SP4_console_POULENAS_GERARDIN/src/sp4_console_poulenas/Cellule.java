@@ -51,6 +51,15 @@ public class Cellule {
          }
         return false;
     }
+    public boolean placerDesintegrateur(){
+        return false;
+    }
+    public boolean prescenceDesintegrateur (){
+        return false; 
+    }
+    public boolean recupererDesintegrteur (){
+        return false;
+    }
    
 }
     

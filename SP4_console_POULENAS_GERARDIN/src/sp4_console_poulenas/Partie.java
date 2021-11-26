@@ -29,7 +29,19 @@ public class Partie {
            ListeJoueurs[0].ajouterJetons(new Jeton ("rouge"));
            ListeJoueurs[1].ajouterJetons(new Jeton ("jaune"));
        }
-    }
+        int l = (int)(Math.random()*6);
+        int c = (int)(Math.random()*7);
+        grilleJeu.cellulesJeu[l][c].placerTrouNoir();
+        for (int k=1; k<4; k++){
+            l = (int)(Math.random()*6);
+            c = (int)(Math.random()*7);
+            while (grilleJeu.cellulesJeu[l][c].prescenceTrouNoir()==true){
+                l = (int)(Math.random()*6);
+                c = (int)(Math.random()*7); 
+        }    
+        grilleJeu.cellulesJeu[l][c].placerTrouNoir(); 
+        }
+       }
     public void debuterPartie(){
         grilleJeu.afficherGrilleSurConsole();
         joueurCourant=ListeJoueurs[0];
