@@ -12,7 +12,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     Joueur[] ListeJoueurs = new Joueur[2];
     Joueur joueurCourant;
-    Grille grilleJeu;
+    Grille grilleJeu = new Grille();
 
     /**
      * Creates new form fenetreDeJeu
