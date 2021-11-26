@@ -55,6 +55,7 @@ public class Partie {
                 System.out.println("Choisissez une colonne");
                 choix = sc.nextInt();
             }
+            
             while (grilleJeu.colonneRemplie(choix)!=false){
                 System.out.println("Choisissez une colonne (colonne remplie)");
                 choix = sc.nextInt();
@@ -62,9 +63,14 @@ public class Partie {
                     choix = sc.nextInt();
             }
             }
+            
+        
+           
             Jeton J = joueurCourant.listeJetons[joueurCourant.nombresJetonsRestants-1];
             joueurCourant.nombresJetonsRestants--;
+            
             grilleJeu.ajouterJetonDansColonne(J, choix);
+            
             grilleJeu.afficherGrilleSurConsole();
             if (joueurCourant==ListeJoueurs[0]){
                 joueurCourant=ListeJoueurs[1];                

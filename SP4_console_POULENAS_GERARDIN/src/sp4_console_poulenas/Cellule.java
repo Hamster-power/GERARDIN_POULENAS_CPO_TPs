@@ -17,7 +17,11 @@ public class Cellule {
     public boolean affecterJeton(Jeton LeJeton){
         if (jetonCourant ==null){
             jetonCourant = LeJeton;
+            if (prescenceTrouNoir()){
+                activerTrouNoir();
+            }
             return true;
+        
         }
         return false;
     }
