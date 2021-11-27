@@ -18,7 +18,7 @@ public class Cellule {
     public boolean affecterJeton(Jeton LeJeton){
         if (jetonCourant ==null){ 
             jetonCourant = LeJeton;
-        if (prescenceTrouNoir()){ //Si préscence d'un trou noir
+        if (presenceTrouNoir()){ //Si préscence d'un trou noir
                 activerTrouNoir(); // Active le trou noir 
             }
             return true;
@@ -41,7 +41,7 @@ public class Cellule {
         }
       return false;  
     }
-    public boolean prescenceTrouNoir(){ // Sert à tester la présence d'un trou noir
+    public boolean presenceTrouNoir(){ // Sert à tester la présence d'un trou noir
         if (trouNoir==true){
             return true;
         }
@@ -66,7 +66,7 @@ public class Cellule {
         }
         return false; // Déjà un désintégrateur
     }
-    public boolean prescenceDesintegrateur (){
+    public boolean presenceDesintegrateur (){
         if (desintegrateur==true){
             return true;
         }

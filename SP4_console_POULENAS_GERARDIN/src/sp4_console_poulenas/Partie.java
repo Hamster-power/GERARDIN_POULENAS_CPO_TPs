@@ -35,7 +35,7 @@ public class Partie {
         for (int k=1; k<4; k++){
             l = (int)(Math.random()*6);
             c = (int)(Math.random()*7);
-            while (grilleJeu.cellulesJeu[l][c].prescenceTrouNoir()==true){
+            while (grilleJeu.cellulesJeu[l][c].presenceTrouNoir()==true){
                 l = (int)(Math.random()*6);
                 c = (int)(Math.random()*7); 
         }    
