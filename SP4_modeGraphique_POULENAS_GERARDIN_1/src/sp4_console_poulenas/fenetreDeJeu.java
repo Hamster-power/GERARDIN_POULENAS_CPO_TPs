@@ -207,6 +207,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         panneau_info_joueurs.setVisible(true);
         panneau_info_partie.setVisible(true);
+        initialiserPartie();
         
         
     }//GEN-LAST:event_btn_startActionPerformed
@@ -257,6 +258,15 @@ public class fenetreDeJeu extends javax.swing.JFrame {
            ListeJoueurs[0].ajouterJetons(new Jeton ("rouge"));
            ListeJoueurs[1].ajouterJetons(new Jeton ("jaune"));
        }
+       // Création des joueurs
+       String nomJoueur1 = nom_joueur1.getText();
+       Joueur J1 = new Joueur(nomJoueur1);
+       String nomJoueur2 = nom_joueur2.getText();
+       Joueur J2 = new Joueur(nomJoueur2);
+       
+       ListeJoueurs[0] = J1;
+       ListeJoueurs[1] = J2;
+       
     }
     public void debuterPartie(){
         grilleJeu.afficherGrilleSurConsole();
