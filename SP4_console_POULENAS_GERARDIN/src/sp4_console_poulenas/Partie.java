@@ -41,7 +41,25 @@ public class Partie {
         }    
         grilleJeu.cellulesJeu[l][c].placerTrouNoir(); 
         }
+        int m =(int)(Math.random()*6); // Placement des trou des 3 désintégrateur pas sur des trous noirs
+        int n = (int)(Math.random()*7);
+        for (int i=0; i<3; i++){
+        while (grilleJeu.cellulesJeu[m][n].prescenceTrouNoir()==true && grilleJeu.cellulesJeu[m][n].prescenceDesintegrateur()==true){ // Vérifie qu'il n'y ai pas de trou noir ni de désintégrateur 
+            m =(int)(Math.random()*6);
+            n = (int)(Math.random()*7);
+        }
+        grilleJeu.cellulesJeu[m][n].placerDesintegrateur(); // Place les 3 désintégrteur
+        }
+        int x =(int)(Math.random()*6); // Tire ligne et colonne au hasard
+        int y =(int)(Math.random()*7);
+        for (int i=0; i<2; i++){
+        while (grilleJeu.cellulesJeu[x][y].prescenceTrouNoir()==false){ // Vérifie qu'il y'ai bine un trou noir
+            x =(int)(Math.random()*6);
+            y = (int)(Math.random()*7);  
+        }
+        grilleJeu.cellulesJeu[x][y].placerDesintegrateur(); // Place les 2 désintégratuer sur les 2 trous noirs
        }
+    }
     public void debuterPartie(){
         grilleJeu.afficherGrilleSurConsole();
         joueurCourant=ListeJoueurs[0];

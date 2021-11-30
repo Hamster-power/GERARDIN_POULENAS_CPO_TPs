@@ -21,9 +21,13 @@ public class Cellule {
         if (prescenceTrouNoir()){ //Si préscence d'un trou noir
                 activerTrouNoir(); // Active le trou noir 
             }
+        if (prescenceDesintegrateur ()== true){
+            recupererDesintegrteur ();
+            
             return true;
         
         }
+    }
         return false;
     }
  
