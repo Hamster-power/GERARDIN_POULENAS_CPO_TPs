@@ -57,6 +57,10 @@ public class Grille {
                     a = "\033[31m O\033[30m";
                 } if ( a=="jaune"){
                     a ="\033[33m O\033[30m";
+                } if (cellulesJeu[i][j].presenceDesintegrateur()==true ){
+                    a = "d";
+                } if (cellulesJeu[i][j].presenceTrouNoir()==true ){
+                    a="t";
                 }
                 System.out.print(a+" | ");
                 
@@ -148,7 +152,7 @@ public class Grille {
       
     }
     public Jeton recupererJeton(int n1, int n2){
-        Jeton J = cellulesJeu[n1][n2].jetonCourant;
+        Jeton J = cellulesJeu[n1][n2].recupererJeton();
         cellulesJeu[n1][n2].jetonCourant=null;
         return J;
     }
@@ -161,7 +165,7 @@ public class Grille {
     }
     public boolean supprimerJeton(int n1,int n2 ){
         if (cellulesJeu[n1][n2].jetonCourant!=null){
-            cellulesJeu[n1][n2].jetonCourant=null;
+            cellulesJeu[n1][n2].supprimerJeton();
             return true;
         }
         return false;

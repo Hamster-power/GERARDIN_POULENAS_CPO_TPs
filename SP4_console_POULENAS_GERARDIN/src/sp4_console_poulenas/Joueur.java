@@ -11,14 +11,14 @@ package sp4_console_poulenas;
 public class Joueur {
     String nom;
     String couleur;
-    Jeton[] listeJetons = new Jeton [21];
+    Jeton[] listeJetons = new Jeton [21]; // Liste de jeton 
     int nombresJetonsRestants = 0;
     int nombreDesintegrateur =0;
     
     public Joueur (String nomJoueur){
     nom = nomJoueur;
     }
-    public void affetcerCouleur(String couleurChoisie){
+    public void affecterCouleur(String couleurChoisie){ 
        couleur = couleurChoisie; 
     }
     public boolean ajouterJetons (Jeton leJeton){
