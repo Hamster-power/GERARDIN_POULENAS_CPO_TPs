@@ -87,6 +87,8 @@ public class Partie {
             Jeton J = joueurCourant.listeJetons[joueurCourant.nombresJetonsRestants-1];
             joueurCourant.nombresJetonsRestants--; // Décrémente le nombre de jeton
             
+            
+            
             grilleJeu.ajouterJetonDansColonne(J, choix);
             grilleJeu.afficherGrilleSurConsole(); // Affiche la grille 
             if (joueurCourant==ListeJoueurs[0]){ // chage de joueur 
