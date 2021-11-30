@@ -53,7 +53,7 @@ public class Partie {
         int x =(int)(Math.random()*6); // Tire ligne et colonne au hasard
         int y =(int)(Math.random()*7);
         for (int i=0; i<2; i++){
-        while (grilleJeu.cellulesJeu[x][y].presenceTrouNoir()==false){ // Vérifie qu'il y'ai bine un trou noir
+        while (grilleJeu.cellulesJeu[x][y].presenceTrouNoir()==false){ // Vérifie qu'il y'ai bien un trou noir
             x =(int)(Math.random()*6);
             y = (int)(Math.random()*7);  
         }
@@ -71,15 +71,54 @@ public class Partie {
             int choix = sc.nextInt();
             
             if (choix==2){
+                //récupérer jeton
+                System.out.println("Choisir l'emplacment du jeton à recuperer");
+                int ligne = sc.nextInt();
+                int colonne = sc.nextInt();
+                while (grilleJeu.cellulesJeu[ligne][colonne].lireCouleurDuJeton()!=joueurCourant.couleur){
+                    System.out.println("Choisir l'emplacment du jeton à recuperer");
+                    ligne = sc.nextInt();
+                    colonne = sc.nextInt();
+                }
+                grilleJeu.cellulesJeu[ligne][colonne].recupererJeton();
+                grilleJeu.tasserGrille(colonne);
+                grilleJeu.afficherGrilleSurConsole(); // Affiche la grille 
+
                 
             }
+            if (choix ==3){
+                if (joueurCourant.nombreDesintegrateur==0){
+                    System.out.println("Pas de désintégrateur en votre possession");
+                    while(choix !=1 && choix!=2){
+                         System.out.println("Choisissez entre 1 et 2");
+                         choix = sc.nextInt();
+                    }
+                }
+            System.out.println("Chosir les coordonées de placement du désintégrateur");
+            int ligne = sc.nextInt();
+            int colonne = sc.nextInt();
+            if (grilleJeu.cellulesJeu[ligne][colonne].lireCouleurDuJeton()== joueurCourant.couleur){
+                System.out.println("Chosir les coordonées de placment du désintégrateur");
+                ligne = sc.nextInt();
+                colonne = sc.nextInt();
+            }
+            joueurCourant.utiliserDesintegrateur();
+            grilleJeu.tasserGrille(colonne);
+            
+            }
+            
+            
+            
+            
+            
+            
+            
+            if (choix ==1){
             System.out.println("Choisissez une colonne");
- 
             while ( choix!=0 && choix != 1 && choix !=2 && choix!= 3 && choix != 4 && choix !=5 && choix != 6 ){
                 System.out.println("Choisissez une colonne");
                 choix = sc.nextInt();
-            }
-            
+            } 
             while (grilleJeu.colonneRemplie(choix)!=false){
                 System.out.println("Choisissez une colonne (colonne remplie)");
                 choix = sc.nextInt();
@@ -91,7 +130,12 @@ public class Partie {
         
            
             Jeton J = joueurCourant.listeJetons[joueurCourant.nombresJetonsRestants-1];
-            joueurCourant.nombresJetonsRestants--; // Décrémente le nombre de jeton
+            joueurCourant.nombresJetonsRestants--;
+            grilleJeu.ajouterJetonDansColonne(J, choix);
+            grilleJeu.afficherGrilleSurConsole();
+                
+            }
+   
             // Pour reucpeer un jeton on rentre des coordonées 
             // While etre recupérer jeton de sa couleur, 
             // Tant que couleur du jeton a recupérer n'est as ok, on redemande des coordonées valables 
@@ -109,19 +153,12 @@ public class Partie {
             // Retasse la grille 
             // Verifier que si il place un jeton il y'ai un désintégratuer
             
-            
-            
-            
-            
-            grilleJeu.ajouterJetonDansColonne(J, choix);
-            grilleJeu.afficherGrilleSurConsole(); // Affiche la grille 
             if (joueurCourant==ListeJoueurs[0]){ // chage de joueur 
                 joueurCourant=ListeJoueurs[1];                
             }else{
                 joueurCourant=ListeJoueurs[0];
-            }      
+            }
         }
-        
     }
-    
 }
+
