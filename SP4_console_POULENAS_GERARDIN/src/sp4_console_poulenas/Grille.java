@@ -153,7 +153,7 @@ public class Grille {
         return J;
     }
     public boolean placerDesintegrateur(int n1, int n2){
-        if(cellulesJeu[n1][n2].prescenceDesintegrateur()==false){
+        if(cellulesJeu[n1][n2].presenceDesintegrateur()==false){
             cellulesJeu[n1][n2].placerDesintegrateur();
             return true;
         }

@@ -35,7 +35,7 @@ public class Partie {
         for (int k=1; k<4; k++){
             l = (int)(Math.random()*6);
             c = (int)(Math.random()*7);
-            while (grilleJeu.cellulesJeu[l][c].prescenceTrouNoir()==true){
+            while (grilleJeu.cellulesJeu[l][c].presenceTrouNoir()==true){
                 l = (int)(Math.random()*6);
                 c = (int)(Math.random()*7); 
         }    
@@ -44,7 +44,7 @@ public class Partie {
         int m =(int)(Math.random()*6); // Placement des trou des 3 désintégrateur pas sur des trous noirs
         int n = (int)(Math.random()*7);
         for (int i=0; i<3; i++){
-        while (grilleJeu.cellulesJeu[m][n].prescenceTrouNoir()==true && grilleJeu.cellulesJeu[m][n].prescenceDesintegrateur()==true){ // Vérifie qu'il n'y ai pas de trou noir ni de désintégrateur 
+        while (grilleJeu.cellulesJeu[m][n].presenceTrouNoir()==true && grilleJeu.cellulesJeu[m][n].presenceDesintegrateur()==true){ // Vérifie qu'il n'y ai pas de trou noir ni de désintégrateur 
             m =(int)(Math.random()*6);
             n = (int)(Math.random()*7);
         }
@@ -53,7 +53,7 @@ public class Partie {
         int x =(int)(Math.random()*6); // Tire ligne et colonne au hasard
         int y =(int)(Math.random()*7);
         for (int i=0; i<2; i++){
-        while (grilleJeu.cellulesJeu[x][y].prescenceTrouNoir()==false){ // Vérifie qu'il y'ai bine un trou noir
+        while (grilleJeu.cellulesJeu[x][y].presenceTrouNoir()==false){ // Vérifie qu'il y'ai bine un trou noir
             x =(int)(Math.random()*6);
             y = (int)(Math.random()*7);  
         }
@@ -65,10 +65,16 @@ public class Partie {
         joueurCourant=ListeJoueurs[0];
         while (grilleJeu.etreRempli()!=true && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])!=true && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])!=true){
             grilleJeu.afficherGrilleSurConsole();
+            System.out.println("Choisir 1 pour placer un jeton \nChoisir 2 pour récuperer un jeton \nChoisir 3 pour placer un désintégrateur");
             Scanner sc; 
             sc = new Scanner(System.in);
-            System.out.println("Choisissez une colonne");
             int choix = sc.nextInt();
+            
+            if (choix==2){
+                
+            }
+            System.out.println("Choisissez une colonne");
+ 
             while ( choix!=0 && choix != 1 && choix !=2 && choix!= 3 && choix != 4 && choix !=5 && choix != 6 ){
                 System.out.println("Choisissez une colonne");
                 choix = sc.nextInt();
@@ -86,6 +92,24 @@ public class Partie {
            
             Jeton J = joueurCourant.listeJetons[joueurCourant.nombresJetonsRestants-1];
             joueurCourant.nombresJetonsRestants--; // Décrémente le nombre de jeton
+            // Pour reucpeer un jeton on rentre des coordonées 
+            // While etre recupérer jeton de sa couleur, 
+            // Tant que couleur du jeton a recupérer n'est as ok, on redemande des coordonées valables 
+            // Fonction recuperer jeton à utiliser grillleJeu.recuperejeton de la ligne et colonee
+            // Réincrémente listejeton jours avec ajouter jeton 
+            // Tasser grille
+            // Affiche grille
+            // 3 grand if pour le choix 
+            // Vérifier qur le joueur à en posssesion un désintégrateur
+            // Demander les coordonée de là où il veut jouer désintégrateur, il faut absoliument qu'il y ai un jeton adverse dans la cellule 
+            // Vérifier qur le joueur à en posssesion un désintégrateur, couleur jeton différent couleur joueur courant
+            // Placer désintégrateur ( ligne colonne en arguments
+            // Joueur courant.utiliser désintégrateur
+            // Supprimer le jeton que l'on a selection 
+            // Retasse la grille 
+            // Verifier que si il place un jeton il y'ai un désintégratuer
+            
+            
             
             
             
