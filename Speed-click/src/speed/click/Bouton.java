@@ -13,15 +13,19 @@ public class Bouton {
     public Bouton (String uneCouleur){
         couleur = uneCouleur;
     }
-    public String lireCouleur(){
+    public String lireCouleurBouton(){
         return couleur;
     }
     
-    public boolean EtreAllume() {
-        return true;
+    public boolean EtreAllume(Bouton LeBouton) {
+        if (LeBouton.couleur == "blanc"){
+            return true;
+        }
+        return false;
     }
     
-    public void CliquerBouton() {
+    public boolean EtreCliquer() {
+        return true;
         
     }
     

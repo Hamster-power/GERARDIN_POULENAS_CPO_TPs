@@ -4,17 +4,13 @@
  */
 package speed.click;
 
+import java.util.Scanner;
+
 /**
  *
  * @author camille
  */
 public class Joueur {
     String Nom;
-    
-    public void CliquerBouton () {
-        
-}
-    
-    
     
 }
