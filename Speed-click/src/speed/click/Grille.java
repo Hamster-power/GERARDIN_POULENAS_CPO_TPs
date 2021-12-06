@@ -83,6 +83,13 @@ public class Grille {
         return false;
     }
     
+    public boolean CliqueRouge (int n1, int n2){ // Renvoie vraie si le bouton est rouge 
+        if (BoutonsJeu[n1][n2].couleur=="rouge"){
+            return true;
+        }
+        return false;
+    }
+    
     public void ChangerBoutonAllume(int n1, int n2){ // Change le bonton allumé lorsque le joueur à cliqué sur le bon bouton
         if(CliqueCorrect(n1, n2)==true){
             BoutonsJeu[n1][n2].couleur="noir";

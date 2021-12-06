@@ -42,6 +42,10 @@ public class Partie {
         int ligne = sc.nextInt();
         System.out.println("Choisir une colonne où cliquer");
         int colonne = sc.nextInt();
+        if (BoutonsJeu.CliqueRouge(ligne, colonne)==true){
+            System.out.println("Vous avez perdu");
+            break;
+        }
         while (BoutonsJeu.CliqueCorrect(ligne, colonne)!=true){
             System.out.println("Choisir une ligne où cliquer");
             ligne = sc.nextInt();
