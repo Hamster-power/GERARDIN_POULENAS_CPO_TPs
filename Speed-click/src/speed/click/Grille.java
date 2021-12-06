@@ -15,7 +15,7 @@ public class Grille {
     Random rand =new Random(); 
   
 
-    public Grille(){
+    public Grille(){ // Génère une grille de bouton
 
        for (int i=0;i<4;i++){
         for (int j=0;j<4;j++){
@@ -25,7 +25,7 @@ public class Grille {
     }
 }
 
-    public boolean GrilleEteinte () {
+    public boolean GrilleEteinte () { //Vérifie si la grille est eteinte ou non 
         for (int i=0; i<4; i++){
             for (int j=0; j<4; j++){
                 if (BoutonsJeu[i][j].lireCouleurBouton()!="noir"){
@@ -36,14 +36,14 @@ public class Grille {
         return true;  
     }
     
-    public void AllumerBoutonAleat(){
+    public void AllumerBoutonAleat(){ // Sert à allumer un bouton aléatoirement
         int l = rand.nextInt(4);
         int c = rand.nextInt(4);
         BoutonsJeu[l][c].couleur = "vert";
         
         
     }
-    public void afficherBoutonSurGrille(){
+    public void afficherBoutonSurGrille(){ //Affiche la grille sur la console 
         for (int i=0; i<4; i++){
             for (int j=0; j<4; j++) {
                 String g = BoutonsJeu[i][j].lireCouleurBouton();
@@ -56,17 +56,26 @@ public class Grille {
         }
     
 }
-    public boolean EtreBienClique (int n1, int n2){
+    public boolean CliqueCorrect (int n1, int n2){ // Vérifie si le joueur clique sur le bouton allumé
         if (BoutonsJeu[n1][n2].couleur=="vert"){
             return true;
         }
         return false;
     }
     
-    public void ChangerBoutonAllume(int n1, int n2){
-        if(EtreBienClique(n1, n2)==true){
+    public void ChangerBoutonAllume(int n1, int n2){ // Change le bonton allumé lorsque le joueur à cliqué sur le bon bouton
+        if(CliqueCorrect(n1, n2)==true){
             BoutonsJeu[n1][n2].couleur="noir";
             AllumerBoutonAleat();
+        }
+    }
+    
+    public void EtteindreGrille(){ // Etteint la grille à la fin de la partie
+        for (int i=0; i<4; i++){
+            for (int j=0; j<4; j++){
+                BoutonsJeu[i][j].couleur="noir";
+
+        }
         }
     }
 }

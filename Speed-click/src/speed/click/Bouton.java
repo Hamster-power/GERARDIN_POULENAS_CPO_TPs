@@ -10,26 +10,26 @@ package speed.click;
  */
 public class Bouton {
     String couleur;
-    public Bouton (String uneCouleur){
+    public Bouton (String uneCouleur){ 
         couleur = uneCouleur;
     }
-    public String lireCouleurBouton(){
+    public String lireCouleurBouton(){ // Lit couleur du bouton 
         return couleur;
     }
     
-    public boolean EtreAllume(Bouton LeBouton) {
-        if (LeBouton.couleur == "blanc"){
+    public boolean EtreAllume(Bouton LeBouton) { // Vérifie si un bouton est allumé oou non ( vert ou pas)
+        if (LeBouton.couleur == "vert"){
             return true;
         }
         return false;
     }
     
-    public boolean EtreCliquer() {
+    public boolean EtreCliquer() { //
         return true;
         
     }
     
-    public boolean EtreUnBoutonPiege() {
+    public boolean EtreUnBoutonPiege() { // Vérifie si le bonton est piège (autre que noir ou vert)
        return true;
     }
     

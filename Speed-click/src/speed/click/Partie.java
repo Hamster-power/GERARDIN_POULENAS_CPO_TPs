@@ -9,12 +9,13 @@ package speed.click;
  * @author camille
  */
 public class Partie {
+    Joueur[]ListeJoueurs= new Joueur[1];
     Joueur JoueurSeul;
-    Grille GrilleJeu;
+    Bouton BoutonsJeu;
     // Chrono
     
-    public Partie (Joueur Joueurseul) {
-        
+    public Partie (Joueur JoueurSeul) {
+    ListeJoueurs[0]=JoueurSeul; // Premier joueur
     }
     
     public void InitialiserPartie(){

@@ -11,6 +11,6 @@ import java.util.Scanner;
  * @author camille
  */
 public class Joueur {
-    String Nom;
+    String Nom; // Nom du joueur
     
 }
