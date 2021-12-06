@@ -24,13 +24,11 @@ public class Bouton {
         return false;
     }
     
-    public boolean EtreCliquer() { //
+    public boolean EtreUnBoutonPiege() {// Vérifie si le bonton est piège (autre que noir ou vert)
+        if (couleur!="noir" && couleur!="vert"){
         return true;
-        
     }
-    
-    public boolean EtreUnBoutonPiege() { // Vérifie si le bonton est piège (autre que noir ou vert)
-       return true;
+        return false;
     }
     
 }

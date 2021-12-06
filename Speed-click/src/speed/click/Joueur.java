@@ -4,7 +4,6 @@
  */
 package speed.click;
 
-import java.util.Scanner;
 
 /**
  *
@@ -12,5 +11,6 @@ import java.util.Scanner;
  */
 public class Joueur {
     String Nom; // Nom du joueur
-    
+    int Score; // Score du joueur 
+
 }

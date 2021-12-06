@@ -43,12 +43,32 @@ public class Grille {
         
         
     }
+    
+    
+    public void AllumerBoutonPiege(){ // Allume un bouton d'une couleur rouge 
+        int l = rand.nextInt(4);
+        int c = rand.nextInt(4);
+        if (BoutonsJeu[l][c].lireCouleurBouton()!="noir"){ // Si le bouton n'est pas noir donc est vert 
+            l = rand.nextInt(4);
+            c = rand.nextInt(4); 
+        } else {
+            BoutonsJeu[l][c].couleur="rouge";
+        }
+    }
+    
+    
     public void afficherBoutonSurGrille(){ //Affiche la grille sur la console 
         for (int i=0; i<4; i++){
             for (int j=0; j<4; j++) {
                 String g = BoutonsJeu[i][j].lireCouleurBouton();
-                if (g == "vert "){
-                    g ="\\033[0;32m O\033[30m";
+                if (g == "noir"){
+                    g ="\033[030m O\033[30m";
+                }
+                if (g == "vert"){
+                    g ="\033[032m O\033[30m";
+                }
+                if (g=="rouge"){
+                    g = "\033[031m O\033[30m";
                 }
                 System.out.print(g+" | ");
             }

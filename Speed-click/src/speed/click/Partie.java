@@ -4,6 +4,7 @@
  */
 package speed.click;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -14,6 +15,7 @@ public class Partie {
     Joueur[]ListeJoueurs= new Joueur[1];
     Joueur JoueurSeul;
     Grille BoutonsJeu;
+    Random rand =new Random();
     // Chrono
     
     public Partie (Joueur JoueurSeul) {
@@ -28,9 +30,14 @@ public class Partie {
     public void DebuterPartie(){
         JoueurSeul =  ListeJoueurs[0]; 
         BoutonsJeu.AllumerBoutonAleat(); // ALlume un premier bouton aléatoirement
+        int temp = rand.nextInt(2);
+        if (temp==0){
+            BoutonsJeu.AllumerBoutonPiege();
+        }
         BoutonsJeu.afficherBoutonSurGrille(); // Affiche grille
         Scanner sc; 
         sc = new Scanner(System.in);
+        for (int i=0; i<20; i++){
         System.out.println("Choisir une ligne où cliquer");
         int ligne = sc.nextInt();
         System.out.println("Choisir une colonne où cliquer");
@@ -41,6 +48,10 @@ public class Partie {
             System.out.println("Choisir une colonne où cliquer");
             colonne = sc.nextInt();
         }
+        System.out.println ("Bravo !");
+        BoutonsJeu.ChangerBoutonAllume(ligne, colonne);
+        BoutonsJeu.afficherBoutonSurGrille();
+    }
     }
     
     public double DemarrerChrono(){
