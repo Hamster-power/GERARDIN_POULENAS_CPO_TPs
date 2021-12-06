@@ -27,7 +27,8 @@ public class Partie {
     
     public void DebuterPartie(){
         JoueurSeul =  ListeJoueurs[0]; 
-        BoutonsJeu.AllumerBoutonAleat();
+        BoutonsJeu.AllumerBoutonAleat(); // ALlume un premier bouton aléatoirement
+        BoutonsJeu.afficherBoutonSurGrille(); // Affiche grille
         Scanner sc; 
         sc = new Scanner(System.in);
         System.out.println("Choisir une ligne où cliquer");

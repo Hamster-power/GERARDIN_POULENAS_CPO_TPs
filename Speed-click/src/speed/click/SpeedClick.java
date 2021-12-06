@@ -15,7 +15,10 @@ public class SpeedClick {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       
+        Joueur joueurCourant = new Joueur();
+        Partie PremierePartie = new Partie(joueurCourant);
+        PremierePartie.InitialiserPartie();
+        PremierePartie.DebuterPartie();
     }
     
 }
