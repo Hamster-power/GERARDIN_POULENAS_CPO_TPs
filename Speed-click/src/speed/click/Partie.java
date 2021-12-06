@@ -4,6 +4,8 @@
  */
 package speed.click;
 
+import java.util.Scanner;
+
 /**
  *
  * @author camille
@@ -24,7 +26,20 @@ public class Partie {
     }
     
     public void DebuterPartie(){
-        
+        JoueurSeul =  ListeJoueurs[0]; 
+        BoutonsJeu.AllumerBoutonAleat();
+        Scanner sc; 
+        sc = new Scanner(System.in);
+        System.out.println("Choisir une ligne où cliquer");
+        int ligne = sc.nextInt();
+        System.out.println("Choisir une colonne où cliquer");
+        int colonne = sc.nextInt();
+        while (BoutonsJeu.CliqueCorrect(ligne, colonne)!=true){
+            System.out.println("Choisir une ligne où cliquer");
+            ligne = sc.nextInt();
+            System.out.println("Choisir une colonne où cliquer");
+            colonne = sc.nextInt();
+        }
     }
     
     public double DemarrerChrono(){
