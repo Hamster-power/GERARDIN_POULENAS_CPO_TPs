@@ -11,7 +11,7 @@ package speed.click;
 public class Partie {
     Joueur[]ListeJoueurs= new Joueur[1];
     Joueur JoueurSeul;
-    Bouton BoutonsJeu;
+    Grille BoutonsJeu;
     // Chrono
     
     public Partie (Joueur JoueurSeul) {
@@ -19,6 +19,7 @@ public class Partie {
     }
     
     public void InitialiserPartie(){
+        BoutonsJeu = new Grille();
         
     }
     
