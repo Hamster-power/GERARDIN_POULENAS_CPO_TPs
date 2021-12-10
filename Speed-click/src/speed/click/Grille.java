@@ -58,8 +58,14 @@ public class Grille {
         }
     }
     
-    public void EtteindreBoutonPiege(){
-        
+    public void EtteindreBoutonPiege(){ // Sert à etteindre un bouton piège
+        for (int i=0; i<4; i++){
+            for (int j=0; j<4; j++){
+                if (BoutonsJeu[i][j].lireCouleurBouton()=="rouge"){
+                    BoutonsJeu[i][j].couleur="noir";
+                }
+            }
+        }
     }
     
 
