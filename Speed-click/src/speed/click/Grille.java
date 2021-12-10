@@ -63,11 +63,10 @@ public class Grille {
                 String g = BoutonsJeu[i][j].lireCouleurBouton();
                 if (g == "noir"){
                     g ="\033[030m O\033[30m";
-                }
-                if (g == "vert"){
+                }else if (g == "vert"){
                     g ="\033[032m O\033[30m";
                 }
-                if (g=="rouge"){
+                else if (g=="rouge"){
                     g = "\033[031m O\033[30m";
                 }
                 System.out.print(g+" | ");
@@ -77,7 +76,7 @@ public class Grille {
     
 }
     public boolean CliqueCorrect (int n1, int n2){ // Vérifie si le joueur clique sur le bouton allumé
-        if (BoutonsJeu[n1][n2].couleur=="vert"){
+        if (BoutonsJeu[n1][n2].couleur=="vert"){ 
             return true;
         }
         return false;

@@ -11,6 +11,5 @@ package speed.click;
  */
 public class Joueur {
     String Nom; // Nom du joueur
-    int Score; // Score du joueur 
-
+    int Score=0; // Score du joueur 
 }

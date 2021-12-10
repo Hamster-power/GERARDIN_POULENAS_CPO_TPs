@@ -37,25 +37,28 @@ public class Partie {
         BoutonsJeu.afficherBoutonSurGrille(); // Affiche grille
         Scanner sc; 
         sc = new Scanner(System.in);
-        for (int i=0; i<20; i++){
-        System.out.println("Choisir une ligne où cliquer");
-        int ligne = sc.nextInt();
-        System.out.println("Choisir une colonne où cliquer");
-        int colonne = sc.nextInt();
-        if (BoutonsJeu.CliqueRouge(ligne, colonne)==true){
-            System.out.println("Vous avez perdu");
-            break;
-        }
-        while (BoutonsJeu.CliqueCorrect(ligne, colonne)!=true){
+        for (int i=0; i<3; i++){
             System.out.println("Choisir une ligne où cliquer");
-            ligne = sc.nextInt();
+            int ligne = sc.nextInt();
             System.out.println("Choisir une colonne où cliquer");
-            colonne = sc.nextInt();
-        }
-        System.out.println ("Bravo !");
-        BoutonsJeu.ChangerBoutonAllume(ligne, colonne);
-        BoutonsJeu.afficherBoutonSurGrille();
+            int colonne = sc.nextInt();
+            if (BoutonsJeu.CliqueRouge(ligne, colonne)==true){
+                System.out.println("Vous avez perdu");
+                break;
+            }
+            while (BoutonsJeu.CliqueCorrect(ligne, colonne)!=true){
+                JoueurSeul.Score=JoueurSeul.Score-1;
+                System.out.println("Choisir une ligne où cliquer");
+                ligne = sc.nextInt();
+                System.out.println("Choisir une colonne où cliquer");
+                colonne = sc.nextInt();
+            }
+            JoueurSeul.Score=JoueurSeul.Score+1;
+            System.out.println ("Bravo !");
+            BoutonsJeu.ChangerBoutonAllume(ligne, colonne);
+            BoutonsJeu.afficherBoutonSurGrille();
     }
+        System.out.println("Votre score est : "+JoueurSeul.Score);
     }
     
     public double DemarrerChrono(){
