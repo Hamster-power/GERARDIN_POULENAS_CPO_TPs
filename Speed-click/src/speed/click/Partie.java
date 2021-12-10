@@ -41,7 +41,7 @@ public class Partie {
         BoutonsJeu.afficherBoutonSurGrille(); // Affiche grille
         Scanner sc; 
         sc = new Scanner(System.in);
-        while (nbSecondes<6){ // Le temps imparti est de 20 secondes 
+        while (nbSecondes<10){ // Le temps imparti est de 20 secondes 
             System.out.println("Choisir une ligne où cliquer"); 
             int ligne = sc.nextInt();
             System.out.println("Choisir une colonne où cliquer");
@@ -60,10 +60,16 @@ public class Partie {
             }
             JoueurSeul.Score=JoueurSeul.Score+1; // Clique correct, score +1
             System.out.println ("Bravo !");
+            temp = rand.nextInt(2); // Nombre aléatoire pour choirsir si il y a un bouton piège ou non 
+            if (temp==0){
+                BoutonsJeu.AllumerBoutonPiege(); // Si 0 tirer aléatoirement, affiche un bouton piège 
+            }
             BoutonsJeu.ChangerBoutonAllume(ligne, colonne); // Change bouton allumé 
             BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
     }
+        BoutonsJeu.EtteindreGrille();
         System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
+        monChrono.stop();
     } 
     
     public double DemarrerChrono(){ 

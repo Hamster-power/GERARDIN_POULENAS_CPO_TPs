@@ -39,9 +39,11 @@ public class Grille {
     public void AllumerBoutonAleat(){ // Sert à allumer un bouton aléatoirement
         int l = rand.nextInt(4);
         int c = rand.nextInt(4);
+        if (BoutonsJeu[l][c].couleur=="rouge"){
+            l = rand.nextInt(4);
+            c = rand.nextInt(4);
+        }
         BoutonsJeu[l][c].couleur = "vert";
-        
-        
     }
     
     
@@ -56,6 +58,11 @@ public class Grille {
         }
     }
     
+    public void EtteindreBoutonPiege(){
+        
+    }
+    
+
     
     public void afficherBoutonSurGrille(){ //Affiche la grille sur la console 
         for (int i=0; i<4; i++){
