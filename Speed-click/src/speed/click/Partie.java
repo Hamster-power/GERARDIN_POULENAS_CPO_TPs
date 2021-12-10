@@ -4,8 +4,11 @@
  */
 package speed.click;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.Scanner;
+import javax.swing.Timer;
 
 /**
  *
@@ -16,8 +19,9 @@ public class Partie {
     Joueur JoueurSeul;
     Grille BoutonsJeu;
     Random rand =new Random();
-    // Chrono
-    
+    int nbSecondes = 0; // Secondes chronomètre 
+    Timer monChrono; // Initialise chronomètre 
+
     public Partie (Joueur JoueurSeul) {
     ListeJoueurs[0]=JoueurSeul; // Premier joueur
     }
@@ -30,18 +34,19 @@ public class Partie {
     public void DebuterPartie(){
         JoueurSeul =  ListeJoueurs[0]; 
         BoutonsJeu.AllumerBoutonAleat(); // ALlume un premier bouton aléatoirement
-        int temp = rand.nextInt(2);
+        int temp = rand.nextInt(2); // Nombre aléatoire pour choirsir si il y a un bouton piège ou non 
         if (temp==0){
-            BoutonsJeu.AllumerBoutonPiege();
+            BoutonsJeu.AllumerBoutonPiege(); // Si 0 tirer aléatoirement, affiche un bouton piège 
         }
         BoutonsJeu.afficherBoutonSurGrille(); // Affiche grille
         Scanner sc; 
         sc = new Scanner(System.in);
-        for (int i=0; i<3; i++){
+        while (nbSecondes<20){
             System.out.println("Choisir une ligne où cliquer");
             int ligne = sc.nextInt();
             System.out.println("Choisir une colonne où cliquer");
             int colonne = sc.nextInt();
+            DemarrerChrono();
             if (BoutonsJeu.CliqueRouge(ligne, colonne)==true){
                 System.out.println("Vous avez perdu");
                 break;
@@ -61,8 +66,21 @@ public class Partie {
         System.out.println("Votre score est : "+JoueurSeul.Score);
     }
     
-    public double DemarrerChrono(){
-        return 3.1;   
+    public double DemarrerChrono(){ 
+        
+        ActionListener tache_recurrente = new ActionListener() { // Définit un tâche récurrente
+        @Override
+        public void actionPerformed(ActionEvent e1) {
+            nbSecondes++; // Incrémente les secondes
+            }
+        ;         
+        };
+	monChrono = new Timer(1000, tache_recurrente);
+        monChrono.start(); // Démarre le chronomètre
+        return 0; // Valeur de retour 
+    }
+    
+    
     }
            
-}
+
