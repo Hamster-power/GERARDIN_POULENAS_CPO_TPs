@@ -18,13 +18,13 @@ public class SpeedClick {
         // TODO code application logic here
         Joueur joueurCourant = new Joueur();
         Partie PremierePartie = new Partie(joueurCourant);
-        PremierePartie.DemarrerChrono();
-        while (PremierePartie.nbSecondes <5) {
-            System.out.println(PremierePartie.nbSecondes );
-        }
-        PremierePartie.monChrono.stop();
-    // PremierePartie.InitialiserPartie();
-    //PremierePartie.DebuterPartie();
+        //PremierePartie.DemarrerChrono();
+        //while (PremierePartie.nbSecondes <5) {
+            //System.out.println(PremierePartie.nbSecondes );}
+        
+        //PremierePartie.monChrono.stop();
+        PremierePartie.InitialiserPartie();
+        PremierePartie.DebuterPartie();
     }
     
 }

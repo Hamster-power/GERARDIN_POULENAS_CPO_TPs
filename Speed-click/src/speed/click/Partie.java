@@ -27,7 +27,7 @@ public class Partie {
     }
     
     public void InitialiserPartie(){
-        BoutonsJeu = new Grille();
+        BoutonsJeu = new Grille(); // Creer grille
         
     }
     
@@ -41,30 +41,30 @@ public class Partie {
         BoutonsJeu.afficherBoutonSurGrille(); // Affiche grille
         Scanner sc; 
         sc = new Scanner(System.in);
-        while (nbSecondes<20){
-            System.out.println("Choisir une ligne où cliquer");
+        while (nbSecondes<6){ // Le temps imparti est de 20 secondes 
+            System.out.println("Choisir une ligne où cliquer"); 
             int ligne = sc.nextInt();
             System.out.println("Choisir une colonne où cliquer");
             int colonne = sc.nextInt();
-            DemarrerChrono();
-            if (BoutonsJeu.CliqueRouge(ligne, colonne)==true){
-                System.out.println("Vous avez perdu");
-                break;
+            DemarrerChrono(); // Démarre chronomètre après premières coordonnées rentrées 
+            if (BoutonsJeu.CliqueRouge(ligne, colonne)==true){ //Si le clique est sur un bouton rouge 
+                System.out.println("Vous avez perdu"); // Partie perdu 
+                break; // Sort de la boucle de jeu
             }
-            while (BoutonsJeu.CliqueCorrect(ligne, colonne)!=true){
-                JoueurSeul.Score=JoueurSeul.Score-1;
+            while (BoutonsJeu.CliqueCorrect(ligne, colonne)!=true){ // Tant que le bouton cliqué n'est pas vert ni rouge 
+                JoueurSeul.Score=JoueurSeul.Score-1; // Score baisse
                 System.out.println("Choisir une ligne où cliquer");
                 ligne = sc.nextInt();
                 System.out.println("Choisir une colonne où cliquer");
-                colonne = sc.nextInt();
+                colonne = sc.nextInt(); // Redmande des coordonées 
             }
-            JoueurSeul.Score=JoueurSeul.Score+1;
+            JoueurSeul.Score=JoueurSeul.Score+1; // Clique correct, score +1
             System.out.println ("Bravo !");
-            BoutonsJeu.ChangerBoutonAllume(ligne, colonne);
-            BoutonsJeu.afficherBoutonSurGrille();
+            BoutonsJeu.ChangerBoutonAllume(ligne, colonne); // Change bouton allumé 
+            BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
     }
-        System.out.println("Votre score est : "+JoueurSeul.Score);
-    }
+        System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
+    } 
     
     public double DemarrerChrono(){ 
         
