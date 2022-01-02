@@ -133,7 +133,7 @@ public class Partie {
                     BoutonsJeu.AllumerBoutonPiege();
                 } 
             }
-            if (JoueurSeul.Score==1){ //Si score égal à 41 on allume 4 boutons pièges
+            if (JoueurSeul.Score==1){ //Si score égal à 1 on allume 4 boutons pièges
                for (int i=0; i<4; i++){
                     BoutonsJeu.AllumerBoutonPiege();
                 } 
@@ -175,9 +175,9 @@ public class Partie {
         nbSecondes = 0;// Remttre le nombre de secondes à 0
         BoutonsJeuGrillardin.AllumerBoutonAleatGrillardin();// Allume premier bouton troisième niveau 
         BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin(); // Allumage bouton piègerouge
-        BoutonsJeuGrillardin.AllumerBoutonAleatGrillardin(); // Allumage bouton piège bleu
-        BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin(); // Allumage bouton piègerouge
-        BoutonsJeuGrillardin.AllumerBoutonAleatGrillardin(); // Allumage bouton piège bleu
+        BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin(); // Allumage bouton piège bleu
+        BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin(); // Allumage bouton piègerouge
+        BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin(); // Allumage bouton piège bleu
         BoutonsJeuGrillardin.afficherBoutonSurGrillardin(); // Affiche grille
         while (nbSecondes<15){ // Chronomètre plus court que le précedent 
             System.out.println("Choisir une ligne où cliquer"); 
@@ -193,7 +193,7 @@ public class Partie {
                 break; // Sort de la boucle de jeu
             }
             while (BoutonsJeuGrillardin.CliqueCorrectGrillardin(ligne, colonne)!=true){ // Tant que le bouton cliqué n'est pas vert ni rouge 
-                JoueurSeul.Score=JoueurSeul.Score-1; // Décrémente le score 
+                JoueurSeul.Score=JoueurSeul.Score-2; // Décrémente le score 
                 System.out.println("Choisir une ligne où cliquer");
                 ligne = sc.nextInt();
                 System.out.println("Choisir une colonne où cliquer");
@@ -201,12 +201,64 @@ public class Partie {
             }
             JoueurSeul.Score=JoueurSeul.Score+1; // Clique correct, score +1
             System.out.println ("Bravo !");
-            BoutonsJeuGrillardin.EtteindreBoutonPiegeGrillardin(); // Etteint tous les boutons rouges 
-        
-        
-        
+            BoutonsJeuGrillardin.EtteindreBoutonPiegeGrillardin(); // Etteint tous les boutons rouges et bleus
+            if (JoueurSeul.Score>0){ // Si score positif on allume 6 boutons pièges
+               for (int i=0; i<3; i++){
+                    BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin();
+                    BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin();
+                } 
+            }
+            if (JoueurSeul.Score==1){ //Si score égal à 1 on allume 8 boutons pièges
+               for (int i=0; i<4; i++){
+                    BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin();
+                    BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin();
+                } 
+            }
+            if (JoueurSeul.Score==2){ //Si score égal à 2 on allume 10 boutons pièges
+               for (int i=0; i<5; i++){
+                    BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin();
+                    BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin();
+                }
+            }
+            if (JoueurSeul.Score==3){ // Si score égal à 3 on allume 12 boutons pièges
+               for (int i=0; i<6; i++){
+                    BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin();
+                    BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin();
+                }
+             }
+            if (JoueurSeul.Score==4){ //Si score égal à 4 on allume 14 boutons pièges 
+               for (int i=0; i<7; i++){
+                    BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin();
+                    BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin();
+                } 
+              }
+            if (JoueurSeul.Score==5){ // Si score égal 5 on allume 16 boutons pièges 
+               for (int i=0; i<8; i++){
+                    BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin();
+                    BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin();
+                } 
+            }
+            if (JoueurSeul.Score==6){ //Si score égal à 6 on allume 18 boutons pièges
+                for (int i=0; i<9; i++){
+                    BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin();
+                    BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin();
+                }               
+            }
+            if (JoueurSeul.Score>7){ // Si score supérieur à 7 on allume 20 boutons pièges
+                for (int i=0; i<10; i++){
+                    BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin();
+                    BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin();
+                } 
+            }           
+            BoutonsJeuGrillardin.ChangerBoutonAllumeGrillardin(ligne, colonne); // Change bouton allumé 
+            BoutonsJeuGrillardin.afficherBoutonSurGrillardin(); // Réaffiche la grille
+            }
+        BoutonsJeuGrillardin.EtteindreGrillardin();
+        BoutonsJeuGrillardin.afficherBoutonSurGrillardin(); // Réaffiche la grille
+        System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
+        monChrono.stop();    // Arrête le chronomètre
         }
-    }
+ 
     
     
     
