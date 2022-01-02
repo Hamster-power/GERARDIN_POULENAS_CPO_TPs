@@ -18,6 +18,7 @@ public class Partie {
     Joueur[]ListeJoueurs= new Joueur[1]; 
     Joueur JoueurSeul;
     Grille BoutonsJeu;
+    Grillardin BoutonsJeuGrillardin;
     Random rand =new Random();
     int nbSecondes = 0; // Secondes chronomètre 
     Timer monChrono; // Initialise chronomètre 
@@ -28,6 +29,8 @@ public class Partie {
     
     public void InitialiserPartie(){
         BoutonsJeu = new Grille(); // Creer grille
+        BoutonsJeuGrillardin =new Grillardin(); // Création de la grille plus grande 
+        
         
     }
     
@@ -165,7 +168,15 @@ public class Partie {
         BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
         System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
         monChrono.stop();    // Arrête le chronomètre
+        
+        
+        
+        
+        
         }
+    
+    
+    
     
     public double DemarrerChrono(){ 
         
