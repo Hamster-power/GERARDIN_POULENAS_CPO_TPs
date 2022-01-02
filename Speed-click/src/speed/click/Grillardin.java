@@ -35,7 +35,7 @@ public class Grillardin {
     public void AllumerBoutonAleatGrillardin(){ // Sert à allumer un bouton aléatoirement
         int l = rand.nextInt(6);
         int c = rand.nextInt(6);
-        if (BoutonsJeuGrillardin[l][c].couleur=="rouge"){
+        if (BoutonsJeuGrillardin[l][c].couleur=="rouge"|| BoutonsJeuGrillardin[l][c].couleur=="bleu"){
             l = rand.nextInt(6);
             c = rand.nextInt(6);
         }
@@ -45,11 +45,22 @@ public class Grillardin {
     public void AllumerBoutonPiegeGrillardin(){ // Allume un bouton d'une couleur rouge 
         int l = rand.nextInt(6);
         int c = rand.nextInt(6);
-        if (BoutonsJeuGrillardin[l][c].lireCouleurBouton()!="noir"){ // Si le bouton n'est pas noir donc est vert 
+        if (BoutonsJeuGrillardin[l][c].lireCouleurBouton()!="noir"){ // Si le bouton n'est pas noir donc est vert ou bleu
             l = rand.nextInt(6);
             c = rand.nextInt(6); 
         } else {
             BoutonsJeuGrillardin[l][c].couleur="rouge";
+        }
+    }
+    
+    public void AllumerAutreBoutonPiegeGrillardin(){ //allume un bouton piège bleu
+        int l = rand.nextInt(6);
+        int c = rand.nextInt(6);
+        if (BoutonsJeuGrillardin[l][c].lireCouleurBouton()!="noir"){ // Si le bouton n'est pas noir donc est vert ou rouge
+            l = rand.nextInt(6);
+            c = rand.nextInt(6); 
+        } else {
+            BoutonsJeuGrillardin[l][c].couleur="bleu";
         }
     }
     
@@ -62,18 +73,31 @@ public class Grillardin {
             }
         }
     }
+    
+    public void EtteindreAutreBoutonPiegeGrillardin(){
+        for (int i=0; i<6; i++){
+            for (int j=0; j<6; j++){
+                if (BoutonsJeuGrillardin[i][j].lireCouleurBouton()=="bleu"){
+                    BoutonsJeuGrillardin[i][j].couleur="noir";
+                }
+            }
+        }
+    }
     public void afficherBoutonSurGrillardin (){ //Affiche la grille sur la console 
         for (int i=0; i<6; i++){
             for (int j=0; j<6; j++) {
                 String g = BoutonsJeuGrillardin[i][j].lireCouleurBouton();
                 if (g == "noir"){
-                    g ="\033[030m O\033[30m";
+                    g ="\033[030m 0\033[30m"; //Rond noir
                 }else if (g == "vert"){
-                    g ="\033[032m O\033[30m";
+                    g ="\033[032m O\033[30m";// Rond vert
                 }
                 else if (g=="rouge"){
-                    g = "\033[031m O\033[30m";
+                    g = "\033[031m O\033[30m"; //Rond rouge
                 }
+                else if (g=="bleu"){
+                g = "\033[034m O\033[30m"; //Rond bleu
+            }
                 System.out.print(g+" | ");
             }
             System.out.println();
@@ -94,6 +118,15 @@ public class Grillardin {
         }
         return false;
     }
+    
+    public boolean CliqueBleuGrillardin (int n1, int n2){ // Renvoie vraie si le bouton est bleu 
+        if (BoutonsJeuGrillardin[n1][n2].couleur=="bleu"){
+            return true;
+        }
+        return false;
+    }
+    
+    
     
      public void ChangerBoutonAllume(int n1, int n2){ // Change le bonton allumé lorsque le joueur à cliqué sur le bon bouton
         if(CliqueCorrectGrillardin(n1, n2)==true){
