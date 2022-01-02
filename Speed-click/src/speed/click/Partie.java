@@ -120,11 +120,45 @@ public class Partie {
             JoueurSeul.Score=JoueurSeul.Score+1; // Clique correct, score +1
             System.out.println ("Bravo !");
             BoutonsJeu.EtteindreBoutonPiege(); // Etteint tous les boutons rouges 
-        
-        
-        
+            if (JoueurSeul.Score>0){ // Si score positif on allume 3 boutons pièges
+               for (int i=0; i<3; i++){
+                    BoutonsJeu.AllumerBoutonPiege();
+                } 
+            }
+            if (JoueurSeul.Score==1){ //Si score égal à 41 on allume 4 boutons pièges
+               for (int i=0; i<4; i++){
+                    BoutonsJeu.AllumerBoutonPiege();
+                } 
+            }
+            if (JoueurSeul.Score==2){ //Si score égal à 2 on allume 5 boutons pièges
+               for (int i=0; i<5; i++){
+                    BoutonsJeu.AllumerBoutonPiege();
+                }
+            }
+            if (JoueurSeul.Score==3){ // Si score égal à 3 on allume 6 boutons pièges
+               for (int i=0; i<6; i++){
+                    BoutonsJeu.AllumerBoutonPiege();
+                }
+             }
+            if (JoueurSeul.Score==4){ //Si score égal à 4 on allume 7 boutons pièges 
+               for (int i=0; i<7; i++){
+                    BoutonsJeu.AllumerBoutonPiege();
+                } 
+              }
+            if (JoueurSeul.Score>5){ // Si score supérieur à 5 on allume 8 boutons pièges 
+               for (int i=0; i<8; i++){
+                    BoutonsJeu.AllumerBoutonPiege();
+                } 
+            }
+            BoutonsJeu.ChangerBoutonAllume(ligne, colonne); // Change bouton allumé 
+            BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
+            }
+            
+        BoutonsJeu.EtteindreGrille();
+        BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
+        System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
+        monChrono.stop();    // Arrête le chronomètre
         }
-    }
     
     public double DemarrerChrono(){ 
         
