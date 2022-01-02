@@ -13,11 +13,11 @@ public class Bouton {
     public Bouton (String uneCouleur){ 
         couleur = uneCouleur;
     }
-    public String lireCouleurBouton(){ // Lit couleur du bouton 
+    public String lireCouleurBouton(){ // Lire couleur du bouton 
         return couleur;
     }
     
-    public boolean EtreAllume(Bouton LeBouton) { // Vérifie si un bouton est allumé oou non ( vert ou pas)
+    public boolean EtreAllume(Bouton LeBouton) { // Vérifie si un bouton est allumé ou non ( vert ou pas)
         if (LeBouton.couleur == "vert"){
             return true;
         }

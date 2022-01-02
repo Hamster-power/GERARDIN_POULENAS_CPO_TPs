@@ -88,7 +88,7 @@ public class Grille {
         }
     
 }
-    public boolean CliqueCorrect (int n1, int n2){ // Vérifie si le joueur clique sur le bouton allumé
+    public boolean CliqueCorrect (int n1, int n2){ // Vérifie si le joueur clique sur le bouton allumé en vert
         if (BoutonsJeu[n1][n2].couleur=="vert"){ 
             return true;
         }
@@ -104,15 +104,15 @@ public class Grille {
     
     public void ChangerBoutonAllume(int n1, int n2){ // Change le bonton allumé lorsque le joueur à cliqué sur le bon bouton
         if(CliqueCorrect(n1, n2)==true){
-            BoutonsJeu[n1][n2].couleur="noir";
-            AllumerBoutonAleat();
+            BoutonsJeu[n1][n2].couleur="noir"; // Bouton redeviens noir 
+            AllumerBoutonAleat(); //allume un autre bouton 
         }
     }
     
     public void EtteindreGrille(){ // Etteint la grille à la fin de la partie
         for (int i=0; i<5; i++){
             for (int j=0; j<5; j++){
-                BoutonsJeu[i][j].couleur="noir";
+                BoutonsJeu[i][j].couleur="noir"; // Tous boutons redeviennent noir 
 
         }
         }

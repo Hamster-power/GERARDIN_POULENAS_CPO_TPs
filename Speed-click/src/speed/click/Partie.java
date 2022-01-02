@@ -15,7 +15,7 @@ import javax.swing.Timer;
  * @author camille
  */
 public class Partie {
-    Joueur[]ListeJoueurs= new Joueur[1];
+    Joueur[]ListeJoueurs= new Joueur[1]; 
     Joueur JoueurSeul;
     Grille BoutonsJeu;
     Random rand =new Random();
@@ -33,7 +33,10 @@ public class Partie {
     
     public void DebuterPartie(){
         JoueurSeul =  ListeJoueurs[0]; 
-        BoutonsJeu.AllumerBoutonAleat(); // Allume un premier bouton aléatoirement
+        
+        // Niveau 1 
+        
+        BoutonsJeu.AllumerBoutonAleat(); // Allume un premier bouton aléatoirement sur la grille
         int temp = rand.nextInt(2); // Nombre aléatoire pour choirsir si il y a un bouton piège ou non 
         if (temp==0){
             BoutonsJeu.AllumerBoutonPiege(); // Si 0 tirer aléatoirement, affiche un bouton piège 
@@ -52,7 +55,7 @@ public class Partie {
                 break; // Sort de la boucle de jeu
             }
             while (BoutonsJeu.CliqueCorrect(ligne, colonne)!=true){ // Tant que le bouton cliqué n'est pas vert ni rouge 
-                JoueurSeul.Score=JoueurSeul.Score-1; // Score baisse
+                // JoueurSeul.Score=JoueurSeul.Score-1; fonctionalité reporté niveau 2
                 System.out.println("Choisir une ligne où cliquer");
                 ligne = sc.nextInt();
                 System.out.println("Choisir une colonne où cliquer");
@@ -88,7 +91,40 @@ public class Partie {
         BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
         System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
         monChrono.stop();
-    } 
+        
+        
+        // Essaie niveau 2 
+        
+        BoutonsJeu.AllumerBoutonAleat(); // Allume un premier bouton aléatoirement sur la grille
+        BoutonsJeu.AllumerBoutonPiege(); // Premier bouton piège 
+        BoutonsJeu.AllumerBoutonPiege(); // Second bouton piège 
+        BoutonsJeu.afficherBoutonSurGrille(); // Affiche grille
+        nbSecondes = 0;// Remttre le nombre de secondes à 0
+        while (nbSecondes<30){ // Chronomètre plus court que le précedent 
+            System.out.println("Choisir une ligne où cliquer"); 
+            int ligne = sc.nextInt();
+            System.out.println("Choisir une colonne où cliquer");
+            int colonne = sc.nextInt();
+            DemarrerChrono(); // Démarre chronomètre après premières coordonnées rentrées 
+            if (BoutonsJeu.CliqueRouge(ligne, colonne)==true){ //Si le clique est sur un bouton rouge 
+                System.out.println("Vous avez perdu"); // Partie perdu 
+                break; // Sort de la boucle de jeu
+            }
+            while (BoutonsJeu.CliqueCorrect(ligne, colonne)!=true){ // Tant que le bouton cliqué n'est pas vert ni rouge 
+                JoueurSeul.Score=JoueurSeul.Score-1; // Décrémente le score 
+                System.out.println("Choisir une ligne où cliquer");
+                ligne = sc.nextInt();
+                System.out.println("Choisir une colonne où cliquer");
+                colonne = sc.nextInt(); // Redmande des coordonées 
+            }
+            JoueurSeul.Score=JoueurSeul.Score+1; // Clique correct, score +1
+            System.out.println ("Bravo !");
+            BoutonsJeu.EtteindreBoutonPiege(); // Etteint tous les boutons rouges 
+        
+        
+        
+        }
+    }
     
     public double DemarrerChrono(){ 
         
