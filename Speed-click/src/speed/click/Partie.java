@@ -169,11 +169,39 @@ public class Partie {
         System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
         monChrono.stop();    // Arrête le chronomètre
         
-        
+        // Niveau 3 
+        System.out.println ("NIVEAU 3");
+        System.out.println ("NIVEAU 3");
+        System.out.println ("NIVEAU 3");
+        BoutonsJeuGrillardin.AllumerBoutonAleatGrillardin();// Allume premier bouton troisième niveau 
+        BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin(); // Création bouton piège 
+        BoutonsJeuGrillardin.afficherBoutonSurGrillardin(); // Affiche grille
+        nbSecondes = 0;// Remttre le nombre de secondes à 0
+        while (nbSecondes<15){ // Chronomètre plus court que le précedent 
+            System.out.println("Choisir une ligne où cliquer"); 
+            int ligne = sc.nextInt();
+            System.out.println("Choisir une colonne où cliquer");
+            int colonne = sc.nextInt();
+            DemarrerChrono(); // Démarre chronomètre après premières coordonnées rentrées 
+            if (BoutonsJeuGrillardin.CliqueRougeGrillardin(ligne, colonne)==true){ //Si le clique est sur un bouton rouge 
+                System.out.println("Vous avez perdu"); // Partie perdu 
+                break; // Sort de la boucle de jeu
+            }
+            while (BoutonsJeuGrillardin.CliqueCorrectGrillardin(ligne, colonne)!=true){ // Tant que le bouton cliqué n'est pas vert ni rouge 
+                JoueurSeul.Score=JoueurSeul.Score-1; // Décrémente le score 
+                System.out.println("Choisir une ligne où cliquer");
+                ligne = sc.nextInt();
+                System.out.println("Choisir une colonne où cliquer");
+                colonne = sc.nextInt(); // Redmande des coordonées 
+            }
+            JoueurSeul.Score=JoueurSeul.Score+1; // Clique correct, score +1
+            System.out.println ("Bravo !");
+            BoutonsJeuGrillardin.EtteindreBoutonPiegeGrillardin(); // Etteint tous les boutons rouges 
         
         
         
         }
+    }
     
     
     
