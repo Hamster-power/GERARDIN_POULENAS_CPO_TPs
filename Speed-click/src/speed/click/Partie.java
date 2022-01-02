@@ -35,7 +35,9 @@ public class Partie {
         JoueurSeul =  ListeJoueurs[0]; 
         
         // Niveau 1 
-        
+        System.out.println ("NIVEAU 1");
+        System.out.println ("NIVEAU 1");
+        System.out.println ("NIVEAU 1");
         BoutonsJeu.AllumerBoutonAleat(); // Allume un premier bouton aléatoirement sur la grille
         int temp = rand.nextInt(2); // Nombre aléatoire pour choirsir si il y a un bouton piège ou non 
         if (temp==0){
@@ -44,7 +46,7 @@ public class Partie {
         BoutonsJeu.afficherBoutonSurGrille(); // Affiche grille
         Scanner sc; 
         sc = new Scanner(System.in);
-        while (nbSecondes<20){ // Le temps imparti est de 20 secondes 
+        while (nbSecondes<60){ // Le temps imparti est de 20 secondes 
             System.out.println("Choisir une ligne où cliquer"); 
             int ligne = sc.nextInt();
             System.out.println("Choisir une colonne où cliquer");
@@ -64,27 +66,28 @@ public class Partie {
             JoueurSeul.Score=JoueurSeul.Score+1; // Clique correct, score +1
             System.out.println ("Bravo !");
             BoutonsJeu.EtteindreBoutonPiege();
-            if (nbSecondes>=0 && nbSecondes<5){ // Entre 0 et 5 seconde allume 2 boutons pièges
+            if (nbSecondes>=0 && nbSecondes<15){ // Entre 0 et 5 seconde allume 2 boutons pièges
                 for (int i=0; i<2; i++){
                     BoutonsJeu.AllumerBoutonPiege();
                 }
             }
-            if (nbSecondes>=5 && nbSecondes<10){ // Entre 5 et 10 secondes allume 3 boutons pièges
+            if (nbSecondes>=15 && nbSecondes<30){ // Entre 5 et 10 secondes allume 3 boutons pièges
                 for (int i=0; i<3; i++){
                     BoutonsJeu.AllumerBoutonPiege();
                 }
             }
-            if (nbSecondes>=10 && nbSecondes<15){ // Entre 10 et 15 seondes allume 4 boutons pièges 
+            if (nbSecondes>=30 && nbSecondes<45){ // Entre 10 et 15 seondes allume 4 boutons pièges 
                 for (int i=0; i<4; i++){
                     BoutonsJeu.AllumerBoutonPiege();
                 }
             }
-            if (nbSecondes>=15 && nbSecondes<20){ // Entre 15 et 20 secondes allume 5 boutons pièges 
+            if (nbSecondes>=45 && nbSecondes<60){ // Entre 15 et 20 secondes allume 5 boutons pièges 
                 for (int i=0; i<5; i++){
                     BoutonsJeu.AllumerBoutonPiege();
                 }
             }
             BoutonsJeu.ChangerBoutonAllume(ligne, colonne); // Change bouton allumé 
+            System.out.println(nbSecondes);
             BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
     }
         BoutonsJeu.EtteindreGrille();
@@ -93,8 +96,11 @@ public class Partie {
         monChrono.stop();
         
         
-        // Essaie niveau 2 
-        
+        // Niveau 2 
+        System.out.println ("NIVEAU 2");
+        System.out.println ("NIVEAU 2");
+        System.out.println ("NIVEAU 2");
+        System.out.println ("NIVEAU 2");
         BoutonsJeu.AllumerBoutonAleat(); // Allume un premier bouton aléatoirement sur la grille
         BoutonsJeu.AllumerBoutonPiege(); // Premier bouton piège 
         BoutonsJeu.AllumerBoutonPiege(); // Second bouton piège 
@@ -151,6 +157,7 @@ public class Partie {
                 } 
             }
             BoutonsJeu.ChangerBoutonAllume(ligne, colonne); // Change bouton allumé 
+            System.out.println(nbSecondes);
             BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
             }
             
