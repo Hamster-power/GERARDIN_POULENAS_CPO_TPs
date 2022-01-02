@@ -46,7 +46,7 @@ public class Partie {
         BoutonsJeu.afficherBoutonSurGrille(); // Affiche grille
         Scanner sc; 
         sc = new Scanner(System.in);
-        while (nbSecondes<60){ // Le temps imparti est de 20 secondes 
+        while (nbSecondes<60){ // Le temps imparti est de 60 secondes pour le premier niveau  
             System.out.println("Choisir une ligne où cliquer"); 
             int ligne = sc.nextInt();
             System.out.println("Choisir une colonne où cliquer");
