@@ -103,12 +103,11 @@ public class Partie {
         System.out.println ("NIVEAU 2");
         System.out.println ("NIVEAU 2");
         System.out.println ("NIVEAU 2");
-        System.out.println ("NIVEAU 2");
+        nbSecondes = 0;// Remttre le nombre de secondes à 0
         BoutonsJeu.AllumerBoutonAleat(); // Allume un premier bouton aléatoirement sur la grille
         BoutonsJeu.AllumerBoutonPiege(); // Premier bouton piège 
         BoutonsJeu.AllumerBoutonPiege(); // Second bouton piège 
         BoutonsJeu.afficherBoutonSurGrille(); // Affiche grille
-        nbSecondes = 0;// Remttre le nombre de secondes à 0
         while (nbSecondes<30){ // Chronomètre plus court que le précedent 
             System.out.println("Choisir une ligne où cliquer"); 
             int ligne = sc.nextInt();
@@ -173,10 +172,13 @@ public class Partie {
         System.out.println ("NIVEAU 3");
         System.out.println ("NIVEAU 3");
         System.out.println ("NIVEAU 3");
-        BoutonsJeuGrillardin.AllumerBoutonAleatGrillardin();// Allume premier bouton troisième niveau 
-        BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin(); // Création bouton piège 
-        BoutonsJeuGrillardin.afficherBoutonSurGrillardin(); // Affiche grille
         nbSecondes = 0;// Remttre le nombre de secondes à 0
+        BoutonsJeuGrillardin.AllumerBoutonAleatGrillardin();// Allume premier bouton troisième niveau 
+        BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin(); // Allumage bouton piègerouge
+        BoutonsJeuGrillardin.AllumerBoutonAleatGrillardin(); // Allumage bouton piège bleu
+        BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin(); // Allumage bouton piègerouge
+        BoutonsJeuGrillardin.AllumerBoutonAleatGrillardin(); // Allumage bouton piège bleu
+        BoutonsJeuGrillardin.afficherBoutonSurGrillardin(); // Affiche grille
         while (nbSecondes<15){ // Chronomètre plus court que le précedent 
             System.out.println("Choisir une ligne où cliquer"); 
             int ligne = sc.nextInt();
@@ -184,6 +186,9 @@ public class Partie {
             int colonne = sc.nextInt();
             DemarrerChrono(); // Démarre chronomètre après premières coordonnées rentrées 
             if (BoutonsJeuGrillardin.CliqueRougeGrillardin(ligne, colonne)==true){ //Si le clique est sur un bouton rouge 
+                System.out.println("Vous avez perdu"); // Partie perdu 
+                break; // Sort de la boucle de jeu
+            }if (BoutonsJeuGrillardin.CliqueBleuGrillardin(ligne,colonne)==true){ // Si clique bouton bleu
                 System.out.println("Vous avez perdu"); // Partie perdu 
                 break; // Sort de la boucle de jeu
             }
