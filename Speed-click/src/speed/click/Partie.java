@@ -37,7 +37,7 @@ public class Partie {
     public void DebuterPartie(){
         JoueurSeul =  ListeJoueurs[0]; 
         
-        // Niveau 1 
+        // Niveau 1 boutons piège rouge, progressif en fonction du temps
         System.out.println ("NIVEAU 1");
         System.out.println ("NIVEAU 1");
         System.out.println ("NIVEAU 1");
@@ -99,7 +99,7 @@ public class Partie {
         monChrono.stop();
         
         
-        // Niveau 2 
+        // Niveau 2 temps réduit, boutons piège en fonction du score
         System.out.println ("NIVEAU 2");
         System.out.println ("NIVEAU 2");
         System.out.println ("NIVEAU 2");
@@ -168,7 +168,7 @@ public class Partie {
         System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
         monChrono.stop();    // Arrête le chronomètre
         
-        // Niveau 3 
+        // Niveau 3 butons pièges bleu
         System.out.println ("NIVEAU 3");
         System.out.println ("NIVEAU 3");
         System.out.println ("NIVEAU 3");
@@ -251,12 +251,16 @@ public class Partie {
                 } 
             }           
             BoutonsJeuGrillardin.ChangerBoutonAllumeGrillardin(ligne, colonne); // Change bouton allumé 
+            System.out.println(nbSecondes); // Affiche temps chronomètre
             BoutonsJeuGrillardin.afficherBoutonSurGrillardin(); // Réaffiche la grille
             }
         BoutonsJeuGrillardin.EtteindreGrillardin();
         BoutonsJeuGrillardin.afficherBoutonSurGrillardin(); // Réaffiche la grille
         System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
         monChrono.stop();    // Arrête le chronomètre
+        
+        
+        // Niveau 4 plusieurs boutons s'allument verts 
         }
  
     
