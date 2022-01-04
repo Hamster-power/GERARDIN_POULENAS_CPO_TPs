@@ -12,7 +12,8 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
     Joueur[] ListeJoueurs = new Joueur[1];
     Joueur JoueurSeul;
-    Grille BoutonsJeu;
+    Grille BoutonsJeu = new Grille (); 
+    
 
     /**
      * Creates new form FenetreDeJeu
