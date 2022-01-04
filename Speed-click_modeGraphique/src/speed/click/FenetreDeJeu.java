@@ -9,23 +9,25 @@ package speed.click;
  * @author camille
  */
 public class FenetreDeJeu extends javax.swing.JFrame {
-    Joueur[]ListeJoueurs= new Joueur[1]; 
+
+    Joueur[] ListeJoueurs = new Joueur[1];
     Joueur JoueurSeul;
     Grille BoutonsJeu;
+
     /**
      * Creates new form FenetreDeJeu
      */
     public FenetreDeJeu() {
         initComponents();
         panneau_info_partie.setVisible(false);
-        for (int i=4; i>=0; i--){
-            for (int j=0; j<=4; j++){
-                Bouton.Bouton_Graphique BoutGraph = new Bouton.Bouton_Graphique();
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j <= 4; j++) {
+                Bouton_Graphique BoutGraph = new Bouton_Graphique();
                 panneau_grille.add(BoutGraph);
             }
-        
-    }
-       
+
+        }
+
     }
 
     /**
