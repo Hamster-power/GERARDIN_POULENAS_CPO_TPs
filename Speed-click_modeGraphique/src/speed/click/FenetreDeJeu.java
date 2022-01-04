@@ -30,6 +30,9 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         panneau_info_partie = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        lbl_Score = new javax.swing.JLabel();
+        Message = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         panneau_creation_partie = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btn_start = new javax.swing.JButton();
@@ -54,6 +57,15 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
         jLabel3.setText("Score : ");
         panneau_info_partie.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        lbl_Score.setText("Score");
+        panneau_info_partie.add(lbl_Score, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        Message.setViewportView(jTextArea1);
+
+        panneau_info_partie.add(Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 250, 120));
 
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 290, 190));
 
@@ -149,6 +161,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane Message;
     private javax.swing.JButton btn_col_0;
     private javax.swing.JButton btn_col_1;
     private javax.swing.JButton btn_col_2;
@@ -158,6 +171,8 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lbl_Score;
     private javax.swing.JPanel panneau_creation_partie;
     private javax.swing.JPanel panneau_grille;
     private javax.swing.JPanel panneau_info_partie;
