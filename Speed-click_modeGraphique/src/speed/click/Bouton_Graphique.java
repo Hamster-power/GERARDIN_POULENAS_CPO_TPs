@@ -11,10 +11,10 @@ import javax.swing.JButton;
  * @author Poulenas
  */
 public class Bouton_Graphique extends JButton{
-  Bouton BoutonAssociee  ;
+  Bouton BoutonAssociee  ; // Attribut 
   
-  //public Bouton_Graphique(Bouton UnBouton){
-      //BoutonAssociee = UnBouton;
-  //}
+  public Bouton_Graphique(Bouton UnBouton){ // Constructeur avce paramètre 
+      BoutonAssociee = UnBouton; 
+  }
     
 }

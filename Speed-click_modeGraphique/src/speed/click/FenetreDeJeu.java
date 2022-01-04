@@ -19,11 +19,12 @@ public class FenetreDeJeu extends javax.swing.JFrame {
      */
     public FenetreDeJeu() {
         initComponents();
-        panneau_info_partie.setVisible(false);
-        for (int i = 4; i >= 0; i--) {
-            for (int j = 0; j <= 4; j++) {
-                Bouton_Graphique BoutGraph = new Bouton_Graphique();
-                panneau_grille.add(BoutGraph);
+        panneau_info_partie.setVisible(false); // Panneau non visible tant que partie non commencée
+        for (int i = 4; i >= 0; i--) { // Ligne 
+            for (int j = 0; j <= 4; j++) { // colonne
+                Bouton_Graphique BoutGraph = new Bouton_Graphique(BoutonsJeu.BoutonsJeu[i][j]); //Crée bouton graphique 
+                panneau_grille.add(BoutGraph); // Sert à ajouter un bouton sur mon affichage 
+                // Au bout de tous les tours de boucles on a notre affichage 
             }
 
         }
@@ -169,7 +170,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetreDeJeu().setVisible(true);
+                new FenetreDeJeu().setVisible(true); // Sera visible une fois que on a commencé la partie 
             }
         });
     }
