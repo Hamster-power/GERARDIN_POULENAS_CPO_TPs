@@ -11,7 +11,7 @@ import java.util.Random;
  * @author camille
  */
 public class Grille {
-    Bouton [][] BoutonsJeu = new Bouton[5][5];
+    Bouton [][] BoutonsJeu = new Bouton[5][5]; // Crée une grille de 25 boutons 
     Random rand =new Random(); 
   
 
@@ -19,7 +19,7 @@ public class Grille {
 
        for (int i=0;i<5;i++){
         for (int j=0;j<5;j++){
-            BoutonsJeu[i][j] = new Bouton("noir");
+            BoutonsJeu[i][j] = new Bouton("noir"); // Ce qui vient crée les boutons 
             
         } 
     }
@@ -29,7 +29,7 @@ public class Grille {
         for (int i=0; i<5; i++){
             for (int j=0; j<5; j++){
                 if (BoutonsJeu[i][j].lireCouleurBouton()!="noir"){
-                  return false;  
+                  return false;  // Retourne faux si il y'a des boutons non noirs
                 }
             }
         }
@@ -39,7 +39,7 @@ public class Grille {
     public void AllumerBoutonAleat(){ // Sert à allumer un bouton aléatoirement
         int l = rand.nextInt(5);
         int c = rand.nextInt(5);
-        if (BoutonsJeu[l][c].couleur=="rouge"){
+        if (BoutonsJeu[l][c].couleur=="rouge"){ // Retire des coordonées si le bouton est rouge
             l = rand.nextInt(5);
             c = rand.nextInt(5);
         }
@@ -61,8 +61,8 @@ public class Grille {
     public void EtteindreBoutonPiege(){ // Sert à etteindre un bouton piège
         for (int i=0; i<5; i++){
             for (int j=0; j<5; j++){
-                if (BoutonsJeu[i][j].lireCouleurBouton()=="rouge"){
-                    BoutonsJeu[i][j].couleur="noir";
+                if (BoutonsJeu[i][j].lireCouleurBouton()=="rouge"){ 
+                    BoutonsJeu[i][j].couleur="noir"; // Bouton devient noir s'il était rouge 
                 }
             }
         }
@@ -73,18 +73,18 @@ public class Grille {
     public void afficherBoutonSurGrille(){ //Affiche la grille sur la console 
         for (int i=0; i<5; i++){
             for (int j=0; j<5; j++) {
-                String g = BoutonsJeu[i][j].lireCouleurBouton();
+                String g = BoutonsJeu[i][j].lireCouleurBouton(); // g sera donc la couelur du jeton 
                 if (g == "noir"){
-                    g ="\033[030m O\033[30m";
+                    g ="\033[030m O\033[30m"; // Rond noir
                 }else if (g == "vert"){
-                    g ="\033[032m O\033[30m";
+                    g ="\033[032m O\033[30m"; // rond vert 
                 }
                 else if (g=="rouge"){
-                    g = "\033[031m O\033[30m";
+                    g = "\033[031m O\033[30m"; // rond rouge 
                 }
                 System.out.print(g+" | ");
             }
-            System.out.println();
+            System.out.println(); 
         }
     
 }

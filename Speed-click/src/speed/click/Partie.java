@@ -16,9 +16,9 @@ import javax.swing.Timer;
  */
 public class Partie {
     Joueur[]ListeJoueurs= new Joueur[1]; 
-    Joueur JoueurSeul;
-    Grille BoutonsJeu;
-    Grillardin BoutonsJeuGrillardin;
+    Joueur JoueurSeul; // Joueur 
+    Grille BoutonsJeu; // Grille niveau 1 et 2
+    Grillardin BoutonsJeuGrillardin; // Grille niveau 3
     Random rand =new Random();
     int nbSecondes = 0; // Secondes chronomètre 
     Timer monChrono; // Initialise chronomètre 
@@ -68,10 +68,10 @@ public class Partie {
             }
             JoueurSeul.Score=JoueurSeul.Score+1; // Clique correct, score +1
             System.out.println ("Bravo !");
-            BoutonsJeu.EtteindreBoutonPiege();
+            BoutonsJeu.EtteindreBoutonPiege(); // Etteint bouton(s) rouge
             if (nbSecondes>=0 && nbSecondes<15){ // Entre 0 et 5 seconde allume 2 boutons pièges
                 for (int i=0; i<2; i++){
-                    BoutonsJeu.AllumerBoutonPiege();
+                    BoutonsJeu.AllumerBoutonPiege(); 
                 }
             }
             if (nbSecondes>=15 && nbSecondes<30){ // Entre 5 et 10 secondes allume 3 boutons pièges
@@ -90,13 +90,13 @@ public class Partie {
                 }
             }
             BoutonsJeu.ChangerBoutonAllume(ligne, colonne); // Change bouton allumé 
-            System.out.println(nbSecondes);
+            System.out.println(nbSecondes); // Pratique pour voir si ke chronomèttre défile bien
             BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
     }
-        BoutonsJeu.EtteindreGrille();
+        BoutonsJeu.EtteindreGrille(); // Toute grille redeviens noir
         BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
         System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
-        monChrono.stop();
+        monChrono.stop(); //arret du chronomètre
         
         
         // Niveau 2 temps réduit, boutons piège en fonction du score
@@ -163,7 +163,7 @@ public class Partie {
             BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
             }
             
-        BoutonsJeu.EtteindreGrille();
+        BoutonsJeu.EtteindreGrille(); // Grille redeviens noir 
         BoutonsJeu.afficherBoutonSurGrille(); // Réaffiche la grille
         System.out.println("Votre score est : "+JoueurSeul.Score); // Affiche score à la fin de la partie 
         monChrono.stop();    // Arrête le chronomètre
@@ -204,8 +204,8 @@ public class Partie {
             BoutonsJeuGrillardin.EtteindreBoutonPiegeGrillardin(); // Etteint tous les boutons rouges et bleus
             if (JoueurSeul.Score>0){ // Si score positif on allume 6 boutons pièges
                for (int i=0; i<3; i++){
-                    BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin();
-                    BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin();
+                    BoutonsJeuGrillardin.AllumerBoutonPiegeGrillardin(); // Boutons rouges
+                    BoutonsJeuGrillardin.AllumerAutreBoutonPiegeGrillardin(); // Boutons bleus
                 } 
             }
             if (JoueurSeul.Score==1){ //Si score égal à 1 on allume 8 boutons pièges
