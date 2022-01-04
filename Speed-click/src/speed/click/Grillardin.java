@@ -96,7 +96,7 @@ public class Grillardin {
                     g = "\033[031m O\033[30m"; //Rond rouge
                 }
                 else if (g=="bleu"){
-                g = "\033[034m O\033[30m"; //Rond bleu
+                    g = "\033[034m O\033[30m"; //Rond bleu
             }
                 System.out.print(g+" | ");
             }
@@ -128,7 +128,7 @@ public class Grillardin {
     
     
     
-     public void ChangerBoutonAllume(int n1, int n2){ // Change le bonton allumé lorsque le joueur à cliqué sur le bon bouton
+     public void ChangerBoutonAllumeGrillardin(int n1, int n2){ // Change le bonton allumé lorsque le joueur à cliqué sur le bon bouton
         if(CliqueCorrectGrillardin(n1, n2)==true){
             BoutonsJeuGrillardin[n1][n2].couleur="noir"; // Bouton redeviens noir 
             AllumerBoutonAleatGrillardin(); //allume un autre bouton 
