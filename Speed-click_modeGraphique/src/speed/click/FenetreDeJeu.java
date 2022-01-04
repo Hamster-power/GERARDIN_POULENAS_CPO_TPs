@@ -132,6 +132,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         // TODO add your handling code here:
         panneau_info_partie.setVisible(true);
         panneau_grille.repaint(); // Raffraichage grille :)
+        btn_start.setEnabled(false);
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
