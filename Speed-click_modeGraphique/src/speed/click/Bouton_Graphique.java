@@ -14,7 +14,7 @@ import javax.swing.JButton;
  */
 public class Bouton_Graphique extends JButton{
   Bouton BoutonAssociee  ; // Attribut 
-  ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/image/noir.jpg"));
+  ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/image/noir.jpg")); // Crée référence vers les 3 images 
   ImageIcon img_verte = new javax.swing.ImageIcon(getClass().getResource("/image/vert.jpg"));
   ImageIcon img_rouge = new javax.swing.ImageIcon(getClass().getResource("/image/rouge.jpg"));
   
